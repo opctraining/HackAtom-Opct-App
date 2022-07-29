@@ -1,20 +1,16 @@
-/* eslint-disable prettier/prettier */
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- *
- * @format
- */
-
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import GlobalNav from './src/navigators';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <View />
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <GlobalNav />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
