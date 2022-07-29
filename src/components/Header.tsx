@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 20,
-    marginTop: getStatusBarHeight()
+    marginTop: getStatusBarHeight(),
+    paddingHorizontal: 20
   }
 });

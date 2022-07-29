@@ -12,7 +12,7 @@ const GlobalNav = () => {
       <Stack.Navigator
         screenOptions={
           {
-            cardStyle: { backgroundColor: "black", paddingHorizontal: 20 },
+            cardStyle: { backgroundColor: "black" },
             cardStyleInterpolator:
               Platform.OS === "android" ?
                 CardStyleInterpolators.forFadeFromBottomAndroid :
