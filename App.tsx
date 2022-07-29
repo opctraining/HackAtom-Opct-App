@@ -10,9 +10,12 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
-  return <View />;
+  return (
+    <View />
+  );
 };
 
 const styles = StyleSheet.create({
