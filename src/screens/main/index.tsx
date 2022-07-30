@@ -59,12 +59,11 @@ const Main = () => {
           // onPress={() => navigation.navigate("WeeklyGame")}
           style={{ width: "90%", marginTop: 50 }} />
         <TouchableOpacity
-          style={{ marginTop: 370, alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3, height: size.height - 780, width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49" }}
+          style={{ marginTop: 370, alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3, width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49" }}
           onPress={() => {
             navigation.navigate("Reward");
           }}
         >
-
           <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>Stop </Text>
           <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>OPCT</Text>
         </TouchableOpacity>
