@@ -3,6 +3,7 @@ import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from '../screens/home';
 import Main from "../screens/main"
+import Reward from '../screens/reward';
 
 const Stack = createStackNavigator();
 
@@ -16,11 +17,16 @@ const GlobalNav = () => {
       <Stack.Navigator
         screenOptions={
           {
-            cardStyle: {},
+            cardStyle: { backgroundColor: "black" },
             cardStyleInterpolator:
               CardStyleInterpolators.forHorizontalIOS
           }
         }>
+        <Stack.Screen
+          name="Reward"
+          component={Reward}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Home"
           component={Home}
