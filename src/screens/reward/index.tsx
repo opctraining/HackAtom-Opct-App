@@ -1,7 +1,8 @@
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
+import rewardCard from "../../assets/rewardCard.png"
 
 const Reward = () => {
   const [isSuccess, setIsSuccess] = useState(true);
@@ -11,7 +12,10 @@ const Reward = () => {
       <View style={styles.container}>
         <View style={{ marginTop: 40, alignSelf: "center", marginBottom: "auto" }}>
           <Text style={[styles.text, { textAlign: "center" }]}>Reward</Text>
-          <View style={{ width: 150, height: 200, borderColor: "white", borderWidth: 1, marginTop: 20 }} />
+          <View style={{ width: 150, height: 200, marginTop: 40 }} >
+            <Image source={rewardCard} style={{ width: 150, height: 200 }}></Image>
+          </View>
+
         </View>
         {isSuccess ?
           <>
