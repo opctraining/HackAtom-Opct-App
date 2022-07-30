@@ -67,18 +67,6 @@ const Home = () => {
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>READY, </Text>
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>OPCT</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              marginTop: 10,
-              alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3,
-              width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49"
-            }}
-            onPress={() => {
-              navigation.navigate("TensorFlow");
-            }}
-          >
-            <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>TensorFlow</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -90,7 +78,6 @@ export default Home;
 const styles = StyleSheet.create({
   bottomelement: {
     alignItems: "center",
-    flex: 1.5,
     height: 100,
   },
   Test: { color: 'white' },
