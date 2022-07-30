@@ -4,11 +4,13 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import Home from '../screens/home';
 import Main from "../screens/main";
 import Reward from '../screens/reward';
+import TensorFlow from '../screens/main/TensorFlow';
 
 const Stack = createStackNavigator();
 
 export type MainStackParamList = {
   Main: undefined;
+  TensorFlow: undefined
 };
 
 export type RewardStackParamList = {
@@ -34,6 +36,11 @@ const GlobalNav = () => {
         <Stack.Screen
           name="Main"
           component={Main}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TensorFlow"
+          component={TensorFlow}
           options={{ headerShown: false }}
         />
         <Stack.Screen
