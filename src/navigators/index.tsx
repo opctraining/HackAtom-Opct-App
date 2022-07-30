@@ -2,9 +2,14 @@ import { Platform } from 'react-native';
 import React from 'react';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import Home from '../screens/home';
+import Main from "../screens/main"
 import Reward from '../screens/reward';
 
 const Stack = createStackNavigator();
+
+export type MainStackParamList = {
+  Main: undefined;
+};
 
 const GlobalNav = () => {
   return (
@@ -14,9 +19,7 @@ const GlobalNav = () => {
           {
             cardStyle: { backgroundColor: "black" },
             cardStyleInterpolator:
-              Platform.OS === "android" ?
-                CardStyleInterpolators.forFadeFromBottomAndroid :
-                CardStyleInterpolators.forHorizontalIOS
+              CardStyleInterpolators.forHorizontalIOS
           }
         }>
         <Stack.Screen
@@ -27,6 +30,11 @@ const GlobalNav = () => {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Main"
+          component={Main}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
