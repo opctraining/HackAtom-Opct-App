@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, memo } from 'react';
 import { StyleSheet, Text, View, Dimensions, Platform } from 'react-native';
 
 import { Camera } from 'expo-camera';
@@ -25,8 +25,8 @@ const IS_IOS = Platform.OS === 'ios';
 // devices.
 //
 // This might not cover all cases.
-const CAM_PREVIEW_WIDTH = Dimensions.get('window').width;
-const CAM_PREVIEW_HEIGHT = CAM_PREVIEW_WIDTH / (IS_IOS ? 9 / 16 : 3 / 4);
+const CAM_PREVIEW_WIDTH = Dimensions.get('window').width - 160;
+const CAM_PREVIEW_HEIGHT = CAM_PREVIEW_WIDTH / (IS_IOS ? 9 / 16 : 5 / 6);
 
 // The score threshold for pose detection results.
 const MIN_KEYPOINT_SCORE = 0.3;
@@ -37,7 +37,7 @@ const MIN_KEYPOINT_SCORE = 0.3;
 // preprocess the input (crop, resize, etc). For best result, use the size that
 // doesn't distort the image.
 const OUTPUT_TENSOR_WIDTH = 180;
-const OUTPUT_TENSOR_HEIGHT = OUTPUT_TENSOR_WIDTH / (IS_IOS ? 9 / 16 : 3 / 4);
+const OUTPUT_TENSOR_HEIGHT = OUTPUT_TENSOR_WIDTH / (IS_IOS ? 9 / 16 : 5 / 6);
 
 // Whether to auto-render TensorCamera preview.
 const AUTO_RENDER = false;
@@ -45,7 +45,7 @@ const AUTO_RENDER = false;
 // Whether to load model from app bundle (true) or through network (false).
 const LOAD_MODEL_FROM_BUNDLE = false;
 
-export default function TensorFlow() {
+function TensorFlow() {
   const cameraRef = useRef(null);
   const [tfReady, setTfReady] = useState(false);
   const [model, setModel] = useState();
@@ -297,18 +297,21 @@ export default function TensorFlow() {
         />
         {renderPose()}
         {renderFps()}
-        {renderCameraTypeSwitcher()}
+        {/* {renderCameraTypeSwitcher()} */}
       </View>
     );
   }
 }
+
+export default memo(TensorFlow);
 
 const styles = StyleSheet.create({
   containerPortrait: {
     position: 'relative',
     width: CAM_PREVIEW_WIDTH,
     height: CAM_PREVIEW_HEIGHT,
-    marginTop: Dimensions.get('window').height / 2 - CAM_PREVIEW_HEIGHT / 2,
+    marginTop: 20
+    // marginTop: Dimensions.get('window').height / 2 - CAM_PREVIEW_HEIGHT,
   },
   containerLandscape: {
     position: 'relative',

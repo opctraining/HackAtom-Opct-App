@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -9,6 +9,8 @@ import sizeIcon from "../../assets/sizeup.png";
 import Video from "react-native-video";
 import HeaderCharacter from '../../components/HeaderCharacter';
 import WorkoutVideo from "../../assets/opctVideo.mp4";
+import TensorFlow from './TensorFlow';
+
 const Main = () => {
   const size = useWindowDimensions();
   const navigation = useNavigation<StackNavigationProp<RewardStackParamList>>();
@@ -21,18 +23,20 @@ const Main = () => {
     <View style={{ flex: 2, backgroundColor: "black" }}>
       <HeaderCharacter />
       <View style={{ flex: 1, alignItems: "center" }}>
-        <TouchableOpacity style={{ marginTop: 20, width: "90%", height: 100, alignItems: "center" }}>
+        <TouchableOpacity style={{ alignItems: "center" }}>
 
           <Video
             // fullscreenAutorotate={true}
             // fullscreenOrientation="landscape"
             // fullscreen={sizeIn}
-            muted={true}
+            // muted={true}
             paused={pauseIn}
             playInBackground={false}
             source={WorkoutVideo}
-            style={{ width: 320, height: 250 }}
-            resizeMode="none"
+            style={{ width: Dimensions.get("window").width - 160, height: 250 }}
+            scaleX={1}
+            scaleY={1}
+            resizeMode="cover"
           />
           {pauseIn ?
             <TouchableWithoutFeedback onPress={togglePaused}>
@@ -55,11 +59,16 @@ const Main = () => {
                     } */}
 
         </TouchableOpacity>
+        <View style={{ height: 20 }}>
+          <TensorFlow />
+        </View>
+
         <TouchableOpacity
-          // onPress={() => navigation.navigate("WeeklyGame")}
-          style={{ width: "90%", marginTop: 50 }} />
-        <TouchableOpacity
-          style={{ marginTop: 370, alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3, width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49" }}
+          style={{
+            marginTop: 330, alignItems: "center",
+            flexDirection: "row", justifyContent: "center",
+            borderRadius: 40, borderColor: "white", borderWidth: 3, width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49"
+          }}
           onPress={() => {
             navigation.navigate("Reward");
           }}
