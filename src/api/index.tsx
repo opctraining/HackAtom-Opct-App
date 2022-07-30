@@ -1,17 +1,31 @@
 import axios from "axios"
 
-const baseURL = "http//3.39.232.8"
+const baseURL = "http//3.39.232.8/"
 
 export async function getMyWorkoutResult() {
-    const res = await axios.get(baseURL + "");
-    if (res) {
-        return res.data
+    try {
+        const res = await axios.get(baseURL + "");
+        if (res) {
+            return res.data
+        }
+    }
+    catch (e) {
+        if (axios.isAxiosError(e) && e.response) {
+            console.log(e.response.data)
+        }
     }
 }
 
 export async function getMyWalletAddress(address: string) {
-    const res = await axios.get(baseURL + "search/product/");
-    if (res) {
-        return res.data
+    try {
+        const res = await axios.get(baseURL + "");
+        if (res) {
+            return res.data
+        }
+    }
+    catch (e) {
+        if (axios.isAxiosError(e) && e.response) {
+            console.log(e.response.data)
+        }
     }
 }
