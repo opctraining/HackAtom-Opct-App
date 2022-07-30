@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from '../../components/Header';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import rewardCard from "../../assets/rewardCard.png"
+
 const Reward = () => {
   const [isSuccess, setIsSuccess] = useState(true);
   return (
@@ -14,6 +15,7 @@ const Reward = () => {
           <View style={{ width: 150, height: 200, marginTop: 40 }} >
             <Image source={rewardCard} style={{ width: 150, height: 200 }}></Image>
           </View>
+
         </View>
         {isSuccess ?
           <>

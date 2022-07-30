@@ -19,6 +19,7 @@ const Header = ({ headerRight, viewStyle }: HeaderProps) => {
       <TouchableOpacity
         onPress={() => navigation.goBack()}
       >
+
         <Image source={leftIcon} style={{ width: 20, height: 20 }} />
       </TouchableOpacity>
       {headerRight}

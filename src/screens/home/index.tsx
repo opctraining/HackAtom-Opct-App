@@ -2,9 +2,9 @@ import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity } 
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { MainStackParamList } from "../../navigators"
-import character from "../../assets/character_long.png"
-import sun from "../../assets/mon.png"
+import { MainStackParamList } from "../../navigators";
+import character from "../../assets/character_long.png";
+import sun from "../../assets/mon.png";
 import LinearGradient from 'react-native-linear-gradient';
 
 const Home = () => {
@@ -36,9 +36,7 @@ const Home = () => {
                 colors={['red', 'orange', 'yellow', 'green', 'blue', '#8000FF']}
                 start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
                 style={{ marginTop: 1, marginLeft: 1.6, height: 15, width: 180, alignItems: 'center', justifyContent: 'center', borderRadius: 35 }}
-              >
-
-              </LinearGradient>
+              />
             </View>
           </View>
           <View style={{ flexDirection: "row", marginTop: 25, marginRight: 15, alignItems: "center" }}>
@@ -58,14 +56,28 @@ const Home = () => {
 
         <View style={styles.bottomelement}>
           <TouchableOpacity
-            style={{ alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3, height: size.height - 780, width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49" }}
+            style={{
+              alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3,
+              width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49"
+            }}
             onPress={() => {
-              navigation.navigate("Main")
+              navigation.navigate("Main");
             }}
           >
-
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>READY, </Text>
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>OPCT</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              marginTop: 10,
+              alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3,
+              width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49"
+            }}
+            onPress={() => {
+              navigation.navigate("TensorFlow");
+            }}
+          >
+            <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>TensorFlow</Text>
           </TouchableOpacity>
         </View>
       </View>
