@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { StyleSheet, Button, Text, View, useWindowDimensions, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { MainStackParamList } from "../../navigators";
@@ -8,19 +8,28 @@ import sun from "../../assets/mon.png";
 import LinearGradient from 'react-native-linear-gradient';
 import HeaderCharacter from '../../components/HeaderCharacter';
 // import { cosmosclient, rest, proto } from 'cosmos-client';
+import { clusterApiUrl, Connection, Keypair } from '@solana/web3.js';
+import { Section } from './Section';
+import { AccountProvider } from './AccountProvider';
+import { ConnectionProvider } from './ConnectionProvider';
+import { Wallet } from './Wallet';
 
 const Home = () => {
   const size = useWindowDimensions();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
-
-
   return (
     <View style={{ flex: 7, backgroundColor: "black" }}>
       {/* <HeaderCharacter /> */}
+      <AccountProvider>
+        <ConnectionProvider>
+          <Wallet />
+        </ConnectionProvider>
+      </AccountProvider>
       <View style={{ flex: 3, marginTop: 150 }}>
         <View style={{ borderWidth: 1, alignItems: "center", justifyContent: "flex-start", flex: 1, marginTop: 0 }}>
           <Image source={character} style={{ width: 200, height: 200, }} />
         </View>
+
 
 
       </View>
@@ -38,7 +47,6 @@ const Home = () => {
               <LinearGradient
                 colors={['red', 'orange', 'yellow', 'green', 'blue', '#8000FF']}
                 start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
-                // todo  : badge증가할때 마다 width 증가
                 style={{ marginTop: 1, marginLeft: 1.6, height: 15, width: 180, alignItems: 'center', justifyContent: 'center', borderRadius: 35 }}
               />
             </View>
@@ -55,7 +63,6 @@ const Home = () => {
             <Text style={{ fontSize: 8, color: "white", marginRight: 5, marginLeft: 5 }}>FRI</Text>
             <Text style={{ fontSize: 8, color: "white", marginRight: 5, marginLeft: 5 }}>SAT</Text>
           </View>
-          {/* todo : badge 운동 success 하면 증가 */}
           <Image source={sun} style={{ width: 100, height: 30, marginRight: 110 }} />
         </View>
 
