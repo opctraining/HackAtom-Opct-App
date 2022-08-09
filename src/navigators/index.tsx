@@ -12,10 +12,14 @@ export type MainStackParamList = {
   Main: undefined;
   TensorFlow: undefined
 };
-
 export type RewardStackParamList = {
-  Reward: undefined
-}
+  Reward: undefined;
+};
+
+export type HomeStackParamList = {
+  Home: undefined;
+};
+
 
 const GlobalNav = () => {
   return (
