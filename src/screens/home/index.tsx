@@ -95,7 +95,6 @@ export default Home;
 const styles = StyleSheet.create({
   bottomelement: {
     alignItems: "center",
-    flex: 1.5,
     height: 100,
   },
   Test: { color: 'white' },

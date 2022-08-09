@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions, Image, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -71,6 +71,7 @@ const Main = () => {
             </View>
         </View >
     );
+
 };
 
 export default Main;
