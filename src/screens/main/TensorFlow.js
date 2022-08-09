@@ -26,7 +26,7 @@ const IS_IOS = Platform.OS === 'ios';
 //
 // This might not cover all cases.
 const CAM_PREVIEW_WIDTH = Dimensions.get('window').width - 160;
-const CAM_PREVIEW_HEIGHT = CAM_PREVIEW_WIDTH / (IS_IOS ? 9 / 16 : 5 / 6);
+const CAM_PREVIEW_HEIGHT = CAM_PREVIEW_WIDTH / (IS_IOS ? 5 / 6 : 5 / 6);
 
 // The score threshold for pose detection results.
 const MIN_KEYPOINT_SCORE = 0.3;
@@ -37,7 +37,8 @@ const MIN_KEYPOINT_SCORE = 0.3;
 // preprocess the input (crop, resize, etc). For best result, use the size that
 // doesn't distort the image.
 const OUTPUT_TENSOR_WIDTH = 180;
-const OUTPUT_TENSOR_HEIGHT = OUTPUT_TENSOR_WIDTH / (IS_IOS ? 9 / 16 : 5 / 6);
+// const OUTPUT_TENSOR_HEIGHT = OUTPUT_TENSOR_WIDTH / (IS_IOS ? 5 / 6 : 5 / 6);
+const OUTPUT_TENSOR_HEIGHT = 200;
 
 // Whether to auto-render TensorCamera preview.
 const AUTO_RENDER = false;

@@ -6,17 +6,20 @@ import { MainStackParamList } from "../../navigators";
 import character from "../../assets/character_long.png";
 import sun from "../../assets/mon.png";
 import LinearGradient from 'react-native-linear-gradient';
+import HeaderCharacter from '../../components/HeaderCharacter';
+// import { cosmosclient, rest, proto } from 'cosmos-client';
 
 const Home = () => {
   const size = useWindowDimensions();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
+
   return (
     <View style={{ flex: 7, backgroundColor: "black" }}>
-
-      <View style={{ flex: 4, marginTop: 20 }}>
-        <View style={{ borderWidth: 1, alignItems: "center", justifyContent: "flex-start", flex: 1, marginTop: 100 }}>
-          <Image source={character} style={{ width: 200, height: 270, }} />
+      {/* <HeaderCharacter /> */}
+      <View style={{ flex: 3, marginTop: 150 }}>
+        <View style={{ borderWidth: 1, alignItems: "center", justifyContent: "flex-start", flex: 1, marginTop: 0 }}>
+          <Image source={character} style={{ width: 200, height: 200, }} />
         </View>
 
 
@@ -25,22 +28,23 @@ const Home = () => {
         <View style={{ width: "50%", flex: 0.7, alignItems: "center", justifyContent: "center", height: 50, borderBottomWidth: 3, borderBottomColor: "#8CEE49" }}>
           <Text style={{ marginBottom: 1, color: "#8CEE49", fontSize: 24, fontWeight: "bold" }}>Mission</Text>
         </View>
-        <View style={{ flex: 2.3, alignItems: "center", justifyContent: "center", }}>
+        <View style={{ flex: 2.5, alignItems: "center", justifyContent: "center", }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
 
-            <Text style={{ color: "white", marginRight: 15 }}>WEEKLY</Text>
+            <Text style={{ color: "white", marginLeft: 0, fontSize: 10 }}>WEEKLY</Text>
 
-            <View style={{ borderWidth: 1, borderColor: "white", width: 200, height: 20, borderRadius: 35 }}>
+            <View style={{ borderWidth: 1, marginLeft: 10, borderColor: "white", width: 200, height: 20, borderRadius: 35 }}>
 
               <LinearGradient
                 colors={['red', 'orange', 'yellow', 'green', 'blue', '#8000FF']}
                 start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
+                // todo  : badge증가할때 마다 width 증가
                 style={{ marginTop: 1, marginLeft: 1.6, height: 15, width: 180, alignItems: 'center', justifyContent: 'center', borderRadius: 35 }}
               />
             </View>
           </View>
           <View style={{ flexDirection: "row", marginTop: 25, marginRight: 15, alignItems: "center" }}>
-            <Text style={{ color: "white", fontSize: 14, marginRight: 10, }}>DAILY</Text>
+            <Text style={{ color: "white", fontSize: 12, marginLeft: 25 }}>DAILY</Text>
             <View>
               <Text style={{ fontSize: 8, color: "white", marginRight: 5, marginLeft: 20 }}>SUN</Text>
             </View>
@@ -51,6 +55,7 @@ const Home = () => {
             <Text style={{ fontSize: 8, color: "white", marginRight: 5, marginLeft: 5 }}>FRI</Text>
             <Text style={{ fontSize: 8, color: "white", marginRight: 5, marginLeft: 5 }}>SAT</Text>
           </View>
+          {/* todo : badge 운동 success 하면 증가 */}
           <Image source={sun} style={{ width: 100, height: 30, marginRight: 110 }} />
         </View>
 
@@ -67,6 +72,18 @@ const Home = () => {
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>READY, </Text>
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>OPCT</Text>
           </TouchableOpacity>
+          {/* <TouchableOpacity
+            style={{
+              marginTop: 10,
+              alignItems: "center", flexDirection: "row", justifyContent: "center", borderRadius: 40, borderColor: "white", borderWidth: 3,
+              width: size.width - 100, borderBottomColor: "white", backgroundColor: "#8CEE49"
+            }}
+            onPress={() => {
+              navigation.navigate("TensorFlow");
+            }}
+          >
+            <Text style={{ color: "black", fontWeight: "bold", fontSize: 24 }}>TensorFlow</Text>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>
