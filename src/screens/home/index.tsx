@@ -8,7 +8,6 @@ import sun from "../../assets/mon.png";
 import LinearGradient from 'react-native-linear-gradient';
 import HeaderCharacter from '../../components/HeaderCharacter';
 // import { cosmosclient, rest, proto } from 'cosmos-client';
-import { clusterApiUrl, Connection, Keypair } from '@solana/web3.js';
 import { Section } from './Section';
 import { AccountProvider } from './AccountProvider';
 import { ConnectionProvider } from './ConnectionProvider';
@@ -20,11 +19,7 @@ const Home = () => {
   return (
     <View style={{ flex: 7, backgroundColor: "black" }}>
       {/* <HeaderCharacter /> */}
-      <AccountProvider>
-        <ConnectionProvider>
-          <Wallet />
-        </ConnectionProvider>
-      </AccountProvider>
+
       <View style={{ flex: 3, marginTop: 150 }}>
         <View style={{ borderWidth: 1, alignItems: "center", justifyContent: "flex-start", flex: 1, marginTop: 0 }}>
           <Image source={character} style={{ width: 200, height: 200, }} />

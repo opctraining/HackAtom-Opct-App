@@ -1,5 +1,5 @@
-import {Keypair, PublicKey} from '@solana/web3.js';
-import React, {ReactNode, useEffect, useState} from 'react';
+import { Keypair, PublicKey } from '@solana/web3.js';
+import React, { ReactNode, useEffect, useState } from 'react';
 
 export function elipsify(str = '', len = 4) {
   if (str.length > 30) {
@@ -28,19 +28,20 @@ export interface AccountProviderContext {
 }
 
 const AccountsContext = React.createContext<AccountProviderContext>({
-  createAccount() {},
-  selectAccount(n: Account) {},
+  createAccount() { },
+  selectAccount(n: Account) { },
 });
 
-function AccountProvider(props: {children: ReactNode}) {
-  const {children} = props;
+function AccountProvider(props: { children: ReactNode }) {
+  const { children } = props;
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccount, setSelectedAccount] = useState<Account>(accounts[0]);
 
   const [account, setAccount] = useState<Account | null>();
 
   const createAccount = () => {
-    const {publicKey, secretKey} = Keypair.generate();
+    // 이 부분에서 우리 지갑 생성하면 됨
+    const { publicKey, secretKey } = Keypair.generate();
     const name = elipsify(publicKey.toBase58());
 
     setAccounts([
@@ -82,4 +83,4 @@ function AccountProvider(props: {children: ReactNode}) {
 
 const useAccounts = () => React.useContext(AccountsContext);
 
-export {AccountProvider, useAccounts};
+export { AccountProvider, useAccounts };
