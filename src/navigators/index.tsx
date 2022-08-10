@@ -5,6 +5,8 @@ import Home from '../screens/home';
 import Main from "../screens/main";
 import Reward from '../screens/reward';
 import TensorFlow from '../screens/main/TensorFlow';
+import Login from '../screens/login';
+import PrintWallet from '../screens/login/PrintWallet';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +22,10 @@ export type HomeStackParamList = {
   Home: undefined;
 };
 
+export type LoginStackParamList = {
+  PrintWallet: undefined;
+};
+
 
 const GlobalNav = () => {
   return (
@@ -32,6 +38,11 @@ const GlobalNav = () => {
               CardStyleInterpolators.forHorizontalIOS
           }
         }>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Home"
           component={Home}
@@ -50,6 +61,11 @@ const GlobalNav = () => {
         <Stack.Screen
           name="Reward"
           component={Reward}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PrintWallet"
+          component={PrintWallet}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

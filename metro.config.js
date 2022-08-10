@@ -16,13 +16,15 @@
 //   },
 // };
 const { getDefaultConfig } = require('metro-config');
-module.exports = (async () => {
+
+module.exports = async () => {
   const defaultConfig = await getDefaultConfig();
-  const { assetExts } = defaultConfig.resolver;
+  const { assetExts, sourceExts } = defaultConfig.resolver;
   return {
     resolver: {
       // Add bin to assetExts
+      sourceExts: [...sourceExts, 'cjs', 'svg'],
       assetExts: [...assetExts, 'bin'],
     }
   };
-})();
+};

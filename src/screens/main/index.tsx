@@ -9,7 +9,7 @@ import sizeIcon from "../../assets/sizeup.png";
 import Video from "react-native-video";
 import HeaderCharacter from '../../components/HeaderCharacter';
 import TensorFlow from './TensorFlow';
-import OpctshortVideo from "../../assets/OpctshortVideo.mp4"
+import OpctshortVideo from "../../assets/OpctsshortVideo.mp4"
 
 const Main = () => {
     const size = useWindowDimensions();
