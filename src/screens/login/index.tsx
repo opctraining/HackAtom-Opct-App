@@ -10,13 +10,19 @@ const Login = () => {
     const movetoPrintWallet = () => {
         navigation.navigate("PrintWallet")
     }
+
+    const movetoImportWallet = () => {
+        navigation.navigate('ImportWallet')
+    }
     return (
         <View style={{ flex: 3 }}>
             <View style={{ flex: 1.5, alignItems: "center", justifyContent: "center" }}>
                 <Image source={logo} style={{ marginTop: 90, width: 250, height: 250 }} />
             </View>
             <View style={{ flex: 1.5, alignItems: "center" }}>
-                <Pressable style={{ alignItems: "center", justifyContent: "center", width: 300, height: 65, backgroundColor: "#8CEE49", borderRadius: 40, borderWidth: 1, borderColor: "white" }} >
+                <Pressable
+                    onPress={movetoImportWallet}
+                    style={{ alignItems: "center", justifyContent: "center", width: 300, height: 65, backgroundColor: "#8CEE49", borderRadius: 40, borderWidth: 1, borderColor: "white" }} >
                     <Text style={{ fontSize: 24, fontWeight: "bold" }}>IMPORT WALLET</Text>
                 </Pressable>
                 <TouchableOpacity

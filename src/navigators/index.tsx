@@ -7,6 +7,7 @@ import Reward from '../screens/reward';
 import TensorFlow from '../screens/main/TensorFlow';
 import Login from '../screens/login';
 import PrintWallet from '../screens/login/PrintWallet';
+import ImportWallet from '../screens/login/ImportWallet';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export type HomeStackParamList = {
 
 export type LoginStackParamList = {
   PrintWallet: undefined;
+  ImportWallet: undefined;
 };
 
 
@@ -66,6 +68,11 @@ const GlobalNav = () => {
         <Stack.Screen
           name="PrintWallet"
           component={PrintWallet}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ImportWallet"
+          component={ImportWallet}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
