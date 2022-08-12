@@ -36,12 +36,16 @@ function AccountProvider(props: { children: ReactNode }) {
   const { children } = props;
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccount, setSelectedAccount] = useState<Account>(accounts[0]);
-
+  const OWNER_WALLET_BYTE_ARRAY = [].slice(0, 32)
   const [account, setAccount] = useState<Account | null>();
-
   const createAccount = () => {
-    // 이 부분에서 우리 지갑 생성하면 됨
     const { publicKey, secretKey } = Keypair.generate();
+    const testKey = Keypair.fromSeed(
+      Uint8Array.from(OWNER_WALLET_BYTE_ARRAY)
+    );
+    // console.log(typeof testKey)
+    // 이 부분에서 우리 지갑 생성하면 됨 솔라나는 시드구문으로 가져옴
+    //  const { publicKey, secretKey } = Keypair.fromSeed();
     const name = elipsify(publicKey.toBase58());
 
     setAccounts([
